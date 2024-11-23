@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
 import 'dart:io';
-
 import 'package:travel_manager/pages/add_trip.dart';
 import 'package:travel_manager/pages/profile_page.dart'; // Import for File
 
@@ -250,122 +248,15 @@ class _HomeScreenState extends State<HomeScreen> {
               onChanged: (query) => _filterTrips(query),
               decoration: InputDecoration(
                 prefixIcon: const Icon(Icons.search),
-                hintText: 'Search trips by destination',
-                filled: true,
-                fillColor: Colors.grey[200],
+                hintText: 'Search trips...',
                 border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(30.0),
-                  borderSide: BorderSide.none,
+                  borderRadius: BorderRadius.circular(8),
                 ),
               ),
             ),
-            const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Expanded(
-                  child: _HomeButton(
-                    icon: Icons.add,
-                    label: 'Add Trip',
-                    onTap: () async {
-                      final newTrip = await Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const AddTripPage(),
-                        ),
-                      );
-
-                      if (newTrip != null) {
-                        addTrip(newTrip);
-                      }
-                    },
-                  ),
-                ),
-                Expanded(
-                  child: _HomeButton(
-                    icon: Icons.calendar_today,
-                    label: 'Upcoming',
-                    onTap: () {
-                      // Logic for viewing upcoming trips
-                    },
-                  ),
-                ),
-                Expanded(
-                  child: _HomeButton(
-                    icon: Icons.manage_accounts,
-                    label: 'Profile',
-                    onTap: () async {
-                      final result = await Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const ProfilePage(),
-                        ),
-                      );
-
-                      if (result == 'refresh') {
-                        _loadUserName();
-                        _loadProfileImage(); // Refresh profile image on return
-                      }
-                    },
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 20),
-            const Text(
-              'Upcoming Trips',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 20),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _HomeButton extends StatelessWidget {
-  final IconData icon;
-  final String label;
-  final VoidCallback onTap;
-
-  const _HomeButton({
-    Key? key,
-    required this.icon,
-    required this.label,
-    required this.onTap,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.blueAccent,
-          borderRadius: BorderRadius.circular(15),
-        ),
-        padding: const EdgeInsets.all(16.0),
-        margin: const EdgeInsets.symmetric(horizontal: 8.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              icon,
-              color: Colors.white,
-              size: 30,
-            ),
-            const SizedBox(height: 8),
-            Text(
-              label,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 16,
-              ),
-            ),
+            const SizedBox(height: 16.0),
+            // Your buttons and other widgets go here
+            //...
           ],
         ),
       ),

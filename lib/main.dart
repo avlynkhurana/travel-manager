@@ -6,6 +6,15 @@ import 'package:travel_manager/pages/home_project.dart';
 import 'package:travel_manager/pages/login.dart';
 import 'package:travel_manager/pages/profile_page.dart';
 import 'package:travel_manager/pages/signup.dart';
+import 'pages/flights.dart';
+import 'pages/hotels.dart';
+import 'pages/homestays.dart';
+import 'pages/holiday_packages.dart';
+import 'pages/trains.dart';
+import 'pages/buses.dart';
+import 'pages/cabs.dart';
+import 'pages/forex.dart';
+import 'pages/insurance.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -35,6 +44,15 @@ class MainApp extends StatelessWidget {
         '/signup': (context) => const SignUpScreen(),
         '/home': (context) => const HomeScreen(),
         '/profile': (context) => const ProfilePage(),
+        '/flights': (context) => const FlightsPage(),
+        '/hotels': (context) => const HotelsPage(),
+        '/homestays': (context) => const HomestaysPage(),
+        '/holiday_packages': (context) => const HolidayPackagesPage(),
+        '/trains': (context) => const TrainsPage(),
+        '/buses': (context) => const BusesPage(),
+        '/cabs': (context) => const CabsPage(),
+        '/forex': (context) => const ForexPage(),
+        '/insurance': (context) => const InsurancePage(),
         // '/': (context) => const AuthWrapper(),
         // '/login': (context) => const LoginPage(),
         // '/signup': (context) => const SignUpScreen(),
